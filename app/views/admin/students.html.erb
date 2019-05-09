@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title ">Students</h4>
+        <p class="card-category"> List of this semester registered students</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                ID
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                Email
+              </th>
+              <th>
+                Registration
+              </th>
+              <th>
+                Major
+              </th>
+            </thead>
+            <tbody>
+              <% @students.each do |student| %>
+              <tr>
+                <td>
+                  <%= student.id %>
+                </td>
+                <td>
+                  <%= student.name %>
+                </td>
+                <td>
+                  <%= student.email %>
+                </td>
+                <td>
+                  <%= student.created_at.to_formatted_s(:long) %>
+                </td>
+                <td class="text-primary">
+                  Computer Science
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

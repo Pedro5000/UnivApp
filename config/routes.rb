@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'help', to: 'pages#help'
   get 'contact', to: 'pages#contact'
   get 'admin', to: 'admin#index'
+  get 'admin/students', to: 'admin#students'
+  get 'admin/courses', to: 'admin#courses'
 end

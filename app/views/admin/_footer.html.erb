@@ -1,0 +1,29 @@
+<footer class="footer">
+  <div class="container-fluid">
+    <nav class="float-left">
+      <ul>
+        <li>
+          <a href="/">
+            Tech University
+          </a>
+        </li>
+        <li>
+          <%= link_to 'About Us', about_path %>
+        </li>
+        <li>
+          <%= link_to 'Courses', admin_courses_path %>
+        </li>
+        <li>
+          <%= link_to 'Help', help_path %>
+        </li>
+      </ul>
+    </nav>
+    <div class="copyright float-right" id="date"> | <a href="/" target="_blank">Tech University</a>, the future of development training.
+    </div>
+  </div>
+</footer>
+<script>
+  const x = new Date().getFullYear();
+  let date = document.getElementById('date');
+  date.innerHTML = '&copy; ' + x + date.innerHTML;
+</script>
