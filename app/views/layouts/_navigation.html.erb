@@ -1,13 +1,13 @@
 <header>
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#">Log in</a></li>
-    <li><a href="#">Log out</a></li>
+    <li><%= link_to 'Log In', login_path %></li>
+    <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
     <li class="divider"></li>
     <li><%= link_to 'Sign Up', new_student_path %></li>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#">Log in</a></li>
-    <li><a href="#">Log out</a></li>
+    <li><%= link_to 'Log In', login_path %></li>
+    <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
     <li class="divider"></li>
     <li><%= link_to 'Sign Up', new_student_path %></li>
   </ul>

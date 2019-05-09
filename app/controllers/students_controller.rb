@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
       flash[:notice] = "Student profile successfully created"
       redirect_to @student
     else
-      flash[:error] = "Something very wrong happened..."
+      flash[:error] = "Something went wrong... Try again."
       render 'new'
     end
   end
@@ -40,6 +40,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:name, :email, :major)
+    params.require(:student).permit(:name, :email, :major, :password, :password_confirmation)
   end
 end

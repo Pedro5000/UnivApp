@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
   get 'admin/students', to: 'admin#students'
   get 'admin/courses', to: 'admin#courses'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
