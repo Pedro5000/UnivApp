@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header card-header-primary">
         <h4 class="card-title ">Students</h4>
-        <p class="card-category"> List of this semester registered students</p>
+        <p class="card-category"> List of this semester students</p>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -41,7 +41,7 @@
                   <%= student.created_at.to_formatted_s(:long) %>
                 </td>
                 <td class="text-primary">
-                  Computer Science
+                  <%= student.major.titleize %>
                 </td>
               </tr>
               <% end %>
