@@ -6,14 +6,14 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-      <div class="card-header card-header-primary">
+      <div class="card-header card-header-success">
         <h4 class="card-title ">Students</h4>
         <p class="card-category"> List of this semester students</p>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table">
-            <thead class=" text-primary">
+            <thead class=" text-success">
               <th>
                 ID
               </th>
@@ -29,7 +29,7 @@
               <th>
                 Major
               </th>
-              <th>
+              <th style="text-align: center;">
                 Courses
               </th>
             </thead>
@@ -48,10 +48,10 @@
                 <td>
                   <%= student.created_at.to_formatted_s(:long) %>
                 </td>
-                <td class="text-primary">
+                <td class="text-success">
                   <%= student.major.titleize %>
                 </td>
-                <td>
+                <td style="text-align: center;">
                   <%= student.courses.count %>
                 </td>
               </tr>

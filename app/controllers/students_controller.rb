@@ -50,7 +50,7 @@ class StudentsController < ApplicationController
   end
 
   def require_same_student
-    if current_user != @student
+    if current_user != @student && current_user.status != 'admin'
       flash[:notice] = "You can only edit your own profile"
       redirect_to student_path(current_user)
     end

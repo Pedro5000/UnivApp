@@ -33,6 +33,9 @@
           </div>
           <div class="card-action">
             <%= link_to 'View Profile', student_path(student) %>
+            <% if current_user.status == 'admin' %>
+            <%= link_to 'Edit User Profile', edit_student_path(student), class: 'right' %>
+            <% end %>
           </div>
         </div>
       </div>

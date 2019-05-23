@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_action :require_user
-  before_action :require_admin
+  before_action :require_admin, only: [:index, :students, :courses, :enrollments]
   layout 'admin'
 
   def index

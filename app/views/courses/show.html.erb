@@ -7,6 +7,6 @@
 <p align="justify"><%= @course.description %></p>
 <% if logged_in? && !(current_user.courses.include?(@course)) %>
   <%= link_to course_enroll_path(course_id: @course.id), method: :post do %>
-  <button class="btn right">Enroll for this course</button>
+  <button class="btn right">Enroll in this course</button>
   <% end %>
 <% end %>
