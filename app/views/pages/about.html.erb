@@ -1,1 +1,11 @@
+<%
+  content_for :title, "About | Tech University"
+%>
+
 <h3>About Tech University</h3>
+<p>Tech University is proud to present <%= @courses.count %> courses to <%= @students.count %> students. Find more information about our university here:</p>
+<ol>
+  <li><%= link_to 'Courses Listing', root_path%></li>
+  <li><%= link_to 'Students Listing', students_path %></li>
+</ol>
+<p>You can contact Tech University on <%= link_to 'this page', contact_path %>.</p>

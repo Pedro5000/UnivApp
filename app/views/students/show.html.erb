@@ -1,13 +1,39 @@
+<%
+  content_for :title, "#{@student.name} Profile | Tech University"
+%>
+
 <div class="row sign-up-form">
-  <div class="col l12">
+  <div class="col s12 m12 l12">
     <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Name: <%= @student.name %></span>
-        <p>Email: <%= @student.email %></p>
-        <p>Major: <%= @student.major.titleize %></p>
-        <p>Course Enrollements: None</p>
+      <div class="row">
+        <div class="profile-pic col s4 m4 l4">
+          <figure>
+            <img src="<%= @student.profile_pic %>" alt="">
+          </figure>
+        </div>
+        <div class="col s8 m8 l8">
+          <div class="card-content white-text">
+            <span class="card-title">Name: <%= @student.name %></span>
+            <p><i>Email:</i> <%= @student.email %></p>
+            <p><i>Major:</i> <%= @student.major.titleize %></p>
+            <p><i>About me:</i> <%= @student.bio %></p>
+            <p><i>Course <%= ('Enrollement').pluralize(@student.courses.count) %>:</i>
+                <% if @student.courses.empty? %>
+                None
+                <% else %>
+                <ul>
+                <% @student.courses.each do |course| %>
+                <li><%= link_to course.name, course_path(course), style: 'color: white;', target: '_blank' %></li>
+                <% end %>
+                </ul>
+              <% end %>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <%= link_to '<i class="material-icons left">edit</i> Edit your profile'.html_safe, edit_student_path(@student), class: 'waves-effect waves-light btn teal right' %>
+    <% if current_user == @student %>
+    <%= link_to '<i class="material-icons left">edit</i> Edit your profile'.html_safe, admin_profile_path(@student), class: 'waves-effect waves-light btn teal right' %>
+    <% end %>
   </div>
 </div>

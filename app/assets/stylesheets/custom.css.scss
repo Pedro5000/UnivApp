@@ -16,3 +16,16 @@ main {
 .sign-up-form {
   padding-top: 28px;
 }
+
+.profile-pic figure {
+  margin: auto;
+  padding: 15px;
+}
+.profile-pic_index figure {
+  margin: auto;
+}
+.profile-pic figure img,
+.profile-pic_index figure img {
+  max-width: 100%;
+  border-radius: 50%;
+}

@@ -1,3 +1,7 @@
+<%
+  content_for :title, "Login | Tech University"
+%>
+
 <div class="container">
   <div class="row center sign-up-form">
     <div class="col s12 m12 l12">
@@ -14,7 +18,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <%= f.password_field :password, placeholder: 'Enter your password' %>
-                <%= f.label :password %>
+                <%= f.label :password, class: 'active' %>
               </div>
             </div>
             <div class="row">

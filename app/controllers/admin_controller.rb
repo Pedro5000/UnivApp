@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
-
+  before_action :require_user
+  before_action :require_admin
   layout 'admin'
 
   def index
@@ -12,6 +13,15 @@ class AdminController < ApplicationController
 
   def courses
     @courses = Course.all
+  end
+
+  def enrollments
+    @students = Student.all
+    @courses = Course.all
+  end
+
+  def profile
+
   end
 
 end

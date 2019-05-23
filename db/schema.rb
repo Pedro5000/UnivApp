@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_152500) do
+ActiveRecord::Schema.define(version: 2019_05_23_091248) do
 
   create_table "courses", force: :cascade do |t|
     t.string "short_name"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_courses", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +34,9 @@ ActiveRecord::Schema.define(version: 2019_05_09_152500) do
     t.datetime "updated_at", null: false
     t.string "major"
     t.string "password_digest"
+    t.string "profile_pic", default: "https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/ruby-on-rails-512.png"
+    t.text "bio", default: "User bio"
+    t.string "status", default: "student"
   end
 
 end

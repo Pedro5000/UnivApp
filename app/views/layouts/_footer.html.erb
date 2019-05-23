@@ -24,7 +24,7 @@
     <div class="container">
     © 2019 Tech University
       <div class="right">
-       <%= link_to 'About', about_path, class: 'grey-text text-lighten-4' %> | <%= link_to 'Courses', courses_path, class: 'grey-text text-lighten-4' %> | <%= link_to 'Students', students_path, class: 'grey-text text-lighten-4' %> | <%= link_to 'Admin', admin_path, class: 'grey-text text-lighten-4' %>
+       <%= link_to 'About', about_path, class: 'grey-text text-lighten-4' %> | <%= link_to 'Courses', courses_path, class: 'grey-text text-lighten-4' %> | <%= link_to 'Students', students_path, class: 'grey-text text-lighten-4' %> <% if logged_in? && current_user.status == 'admin' %> | <%= link_to 'Admin', admin_path, class: 'grey-text text-lighten-4' %><% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,47 @@
+<%
+  content_for :title, "Enrollments | Admin | Tech University"
+  content_for :admin_title, "Dashboard > Enrollments"
+%>
+
+<div class="row">
+  <!-- col -->
+  <% @courses.each do |course| %>
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="card-header card-header-success">
+        <h4 class="card-title"><%= course.short_name %>: <%= course.name %></h4>
+        <p class="card-category">There are currently <%= pluralize(course.students.count, 'student') %> enrolled for this course.</p>
+      </div>
+      <div class="card-body table-responsive">
+        <table class="table table-hover">
+          <thead class="text-warning">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Major</th>
+          </thead>
+          <tbody>
+            <% if course.students.count == 0 %>
+              <tr>
+                <td colspan="4">
+                  There are no students currently enrolled in this course.
+                </td>
+              </tr>
+            <% else %>
+              <% course.students.each do |student| %>
+              <tr>
+                <td><%= student.id %></td>
+                <td><%= student.name %></td>
+                <td><%= student.email %></td>
+                <td><%= student.major.titleize %></td>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <!-- /col -->
+</div>

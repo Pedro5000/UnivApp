@@ -1,3 +1,7 @@
+<%
+  content_for :title, "Course Listing | Tech University"
+%>
+
 <div class="row">
   <div class="col s12">
     <h3 class="center-align">Course Listing</h3>
@@ -9,9 +13,13 @@
           <div class="card-content white-text">
             <span class="card-title"><%= course.short_name %>: <%= course.name %></span>
             <p><%= course.description %></p>
+            <br>
+            <p>Enrolled Students: <%= course.students.count %></p>
           </div>
           <div class="card-action">
-            <%= link_to 'Enroll', new_student_path %>
+            <% if logged_in? && !(current_user.courses.include?(course)) %>
+            <%= link_to 'Enroll', course_enroll_path(course_id: course.id), method: :post %>
+            <% end %>
             <%= link_to 'Info', course_path(course) %>
           </div>
         </div>

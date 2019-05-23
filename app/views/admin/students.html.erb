@@ -1,3 +1,8 @@
+<%
+  content_for :title, "Students | Admin | Tech University"
+  content_for :admin_title, "Dashboard  >  Students"
+%>
+
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -24,6 +29,9 @@
               <th>
                 Major
               </th>
+              <th>
+                Courses
+              </th>
             </thead>
             <tbody>
               <% @students.each do |student| %>
@@ -42,6 +50,9 @@
                 </td>
                 <td class="text-primary">
                   <%= student.major.titleize %>
+                </td>
+                <td>
+                  <%= student.courses.count %>
                 </td>
               </tr>
               <% end %>

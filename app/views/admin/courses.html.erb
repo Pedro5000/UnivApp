@@ -1,7 +1,12 @@
+<%
+  content_for :title, "Courses | Admin | Tech University"
+  content_for :admin_title, "Dashboard > Courses"
+%>
+
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-      <div class="card-header card-header-primary">
+      <div class="card-header card-header-warning">
         <h4 class="card-title ">Courses</h4>
         <p class="card-category"> List of this semester courses</p>
       </div>
@@ -21,6 +26,14 @@
               <th>
                 Description
               </th>
+              <th>
+                Students
+              </th>
+              <% if current_user.status == 'admin' %>
+              <th style="min-width: 129px;">
+                Actions
+              </th>
+              <% end %>
             </thead>
             <tbody>
               <% @courses.each do |course| %>
@@ -37,6 +50,14 @@
                 <td>
                   <%= course.description %>
                 </td>
+                <td>
+                  <%= course.students.count %>
+                </td>
+                <% if current_user.status == 'admin' %>
+                <td>
+                  <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'View', course_path(course) %> | <%= link_to 'Delete', course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+                <% end %>
               </tr>
               <% end %>
             </tbody>
@@ -44,6 +65,11 @@
         </div>
       </div>
     </div>
+    <% if current_user.status == 'admin' %>
+    <%= link_to courses_new_path do %>
+    <button class="btn btn-success pull-right">Add A New Course</button>
+    <% end %>
+    <% end %>
   </div>
 </div>
 

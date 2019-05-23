@@ -1,3 +1,12 @@
+<%
+  content_for :title, "#{@course.short_name}: #{@course.name} | Tech University"
+%>
+
 <h1><%= @course.short_name %></h1>
 <h2><%= @course.name %></h2>
 <p align="justify"><%= @course.description %></p>
+<% if logged_in? && !(current_user.courses.include?(@course)) %>
+  <%= link_to course_enroll_path(course_id: @course.id), method: :post do %>
+  <button class="btn right">Enroll for this course</button>
+  <% end %>
+<% end %>
